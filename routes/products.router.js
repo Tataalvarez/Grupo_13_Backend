@@ -1,20 +1,13 @@
 const { Router } = require('express');
 const router = Router();
+const {productsController} = require('../controllers');
 
-router.get('/', (req, res) => {
-    res.json({ msg: "todos los productos" });
-})
+router.get('/', productsController.getProducts);
 
-router.post('/', (req, res) => {
-    res.json({ msg: "producto insertado" });
-})
+router.post('/', productsController.createProducts);
 
-router.put('/', (req, res) => {
-    res.json({ msg: "producto actualizado" });
-})
+router.put('/', productsController.updateProducts);
 
-router.delete('/', (req, res) => {
-    res.json({ msg: "producto eliminado" });
-})
+router.delete('/', productsController.deleteProducts);
 
 module.exports = router;
