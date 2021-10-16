@@ -1,4 +1,0 @@
-IP: 0.0.0.0/0
-User: grupo13
-Pass: 
-Url: mongodb://localhost:27017/?readPreference=primary&appname=MongoDB%20Compass&ssl=false
