@@ -2,6 +2,10 @@ const express = require('express')
 
 // Inicia express
 const app = express();
+const moongose = require('moongose');
+
+// Conectando a la base de datos
+require('./config/db');
 
 // Conectar a la base de datos
 require('./config/db')
