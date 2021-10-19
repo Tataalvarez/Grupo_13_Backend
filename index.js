@@ -1,7 +1,9 @@
 const express = require('express')
 const app = express();
 const moongose = require('moongose');
-const dbConfig = require('./config/db');
+
+// Conectando a la base de datos
+require('./config/db');
 
 const port = 3001;
 
