@@ -1,0 +1,9 @@
+###
+POST http://localhost:3001/api/usuarios
+Content-Type: application/json
+
+{
+  "nombre": "Andrea",
+  "email": "andrea@correo.com",
+  "password": "123qwr"
+}

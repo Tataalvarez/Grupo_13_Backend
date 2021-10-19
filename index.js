@@ -1,13 +1,27 @@
 const express = require('express')
+
+// Inicia express
 const app = express();
 const moongose = require('moongose');
 
 // Conectando a la base de datos
 require('./config/db');
 
-const port = 3001;
+// Conectar a la base de datos
+require('./config/db')
 
-app.listen(port,()=>{
+// habilitar express.json
+app.use(express.json({ extended: true }));
+
+// Puerto de la app
+const port = process.env.port || 3001;
+
+// Importar rutas
+app.use('/api/usuarios', require('./routes/usuarios'));
+app.use('/api/auth', require('./routes/auth'));
+
+// Arrancar la app
+app.listen(port, () => {
     console.log(`listening on port http://localhost:${port}`);
 });
 
