@@ -9,3 +9,5 @@ const SaleSchema = Schema({
     documentoVendedor: Number,
 
 })
+
+module.exports = mongoose.model('sales',SaleSchema);
