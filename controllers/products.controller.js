@@ -1,20 +1,89 @@
-const getProducts = (req, res) => {
+const ProductSchema = require('../models/product')
+
+const getProduct = async (req, res) => {
+    if (typeof req.body != 'undefined') {
+        try {
+            let producto = new ProductSchema.findById(req.body.id);
+            res.json({ producto});
+        }
+        catch (err) {
+            console.log(err);
+        }
+    }
+    else {
+        res.json({ msg: "No se puede obtener el producto sin el id" });
+    }
+
+}
+const getProducts = async (req, res) => {
+    try {
+        let productos = await ProductSchema.find();
+        res.json({ productos });
+    }
+    catch (err) {
+        console.log(err);
+    }
 
 }
 
-const createProducts = (req, res) => {
+const createProducts = async (req, res) => {
+    if (typeof req.body != 'undefined') {
+        let product = new ProductSchema(req.body);
+        try {
+            await product.save();
+            res.json({ msg: 'Se ha creado el producto' + product.id });
+        }
+        catch (err) {
+            console.log(err);
+        }
+    }
+    else {
+        res.json({ msg: "No se puede crear el producto, revisar los parametros" });
+    }
 
 }
 
-const updateProducts = (req, res) => {
+const updateProducts = async (req, res) => {
+    if (typeof req.body != 'undefined') {
+        try {
+            await ProductSchema.findOneAndUpdate(
+                { _id: req.body.id },
+                { 
+                    valor: req.body.valor,
+                    descripcion: req.body.descripcion,
+                    estado: req.body.estado,
+                }
+            );  
+            res.json({ msg: 'Se ha actualizado el producto' + req.body.id });
+        }
+        catch (err) {
+            console.log(err);
+        }
+    }
+    else {
+        res.json({ msg: "No se puede actualizar el producto, revisar los parametros" + req.body });
+    }
+}
+
+const deleteProducts = async (req, res) => {
+    if (typeof req.body != 'undefined') {
+        try {
+            await ProductSchema.findOneAndRemove(req.body.id);
+            res.json({ msg: 'Se ha eliminado el producto' + req.body.id });
+        }
+        catch (err) {
+            console.log(err);
+        }
+    }
+    else {
+        res.json({ msg: "No se puede eliminar el producto sin el id" });
+    }
+
 
 }
 
-const deleteProducts = (req, res) => {
-
-}
-
-module.exports.getProducts= getProducts;
+module.exports.getProducts = getProducts;
+module.exports.getProduct = getProduct;
 module.exports.createProducts = createProducts;
 module.exports.updateProducts = updateProducts;
 module.exports.deleteProducts = deleteProducts;
