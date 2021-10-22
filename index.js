@@ -4,11 +4,7 @@ const routes = require('./routes');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-const dbConfig = require('./config/db')
-
-mongoose.connect(dbConfig.dbStringConnect)
-    .then(db => console.log("db connected"))
-    .catch(err => console.error(err))
+require('./config/db')
 
 
 app.use(express.json())
@@ -18,9 +14,9 @@ const port = 3001;
 
 app.use(morgan("dev"))
 
-app.get('/', (req, res) =>{
-    res.json({status: 200});
-})
+//app.get('/', (req, res) =>{
+    //res.json({status: 200});
+//})
 
 app.use('/productos', routes.productsRoutes);
 //app.use('/ventas', routes.salesRoutes);

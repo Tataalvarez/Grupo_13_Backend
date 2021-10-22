@@ -2,5 +2,5 @@ user='grupo13'
 pass='GcdYhVCTeLxVwNR3'
 database='appventas'
 host='cluster0.x6erc.mongodb.net/appventas?retryWrites=true&w=majority'
-DB_MONGO='mongodb+srv://<username>:<password>@cluster0.x6erc.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
+DB_MONGO='mongodb+srv://<username>:<password>@cluster0.tuzmh.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
 SECRETA=palabrasecretaparavalidacion
