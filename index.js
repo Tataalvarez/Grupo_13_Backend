@@ -1,14 +1,11 @@
 const express = require('express')
+const mongoose = require('mongoose');
 
 // Inicia express
 const app = express();
-const moongose = require('moongose');
 
 // Conectando a la base de datos
 require('./config/db');
-
-// Conectar a la base de datos
-require('./config/db')
 
 // habilitar express.json
 app.use(express.json({ extended: true }));
