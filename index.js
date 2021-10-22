@@ -1,5 +1,4 @@
 const express = require('express')
-const mongoose = require('mongoose');
 
 // Inicia express
 const app = express();
