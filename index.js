@@ -2,7 +2,13 @@ const express = require('express')
 const app = express();
 const routes = require('./routes');
 const morgan = require('morgan');
+const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const dbConfig = require('./config/db')
+
+mongoose.connect(dbConfig.dbStringConnect)
+    .then(db => console.log("db connected"))
+    .catch(err => console.error(err))
 
 
 app.use(express.json())
@@ -17,7 +23,7 @@ app.get('/', (req, res) =>{
 })
 
 app.use('/productos', routes.productsRoutes);
-app.use('/ventas', routes.salesRoutes);
+//app.use('/ventas', routes.salesRoutes);
 
 app.listen(port,()=>{
     console.log(`listening on port http://localhost:${port}`);

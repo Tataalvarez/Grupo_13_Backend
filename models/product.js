@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const SaleSchema = Schema({
+const ProductSchema = Schema({
     valor: Number,
     dedescripcion: String,
     estado: Boolean,
