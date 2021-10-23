@@ -1,0 +1,55 @@
+
+###
+GET http://localhost:3001/api/productos
+
+###
+GET http://localhost:3001/api/ventas
+
+###
+GET http://localhost:3001/api/productos/617347aa911780353cf8494f
+
+###
+DELETE http://localhost:3001/api/productos/61733ddcc2f5fc73cdcc3683
+
+###
+POST http://localhost:3001/api/productos
+Content-Type: application/json
+
+{
+  "descripcion": "Camisa talla M",
+  "precio": 25,
+  "estado": true,
+  "vendedor": "Tatiana"
+}
+
+###
+POST http://localhost:3001/api/ventas
+Content-Type: application/json
+
+{
+  "cantidad": 2,
+  "descripcion": "Camisa talla M",
+  "valorUnitario": 25,
+  "valorTotal": 50,
+  "nit": 87453422,
+  "cliente": "Mario Hernandez",
+  "codigoVenta": 2569,
+  "estado": true,
+  "vendedor": "Tatiana"
+}
+
+###
+PUT http://localhost:3001/api/ventas/6173532b618d82b376d39732
+Content-Type: application/json
+
+{
+  "cantidad": 2,
+  "descripcion": "Camisa talla M",
+  "valorUnitario": 25,
+  "valorTotal": 50,
+  "nit": 87453422,
+  "cliente": "Jose Diaz",
+  "codigoVenta": 2569,
+  "estado": true,
+  "vendedor": "Tatiana"
+}
