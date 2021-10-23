@@ -1,8 +1,7 @@
 const mongoose = require("mongoose");
 require("dotenv").config();
 
-const mongoAtlasUri = "mongodb://prmora:joalruva69%2a@localhost:27017/database?authSource=admin&readPreference=primary&appname=MongoDB%20Compass&ssl=false";
-
+const mongoAtlasUri = `mongodb://${process.env.admin}:${process.env.password}@${process.env.host}:${process.env.port}/${process.env.database}?authSource=admin&readPreference=primary&appname=MongoDB%20Compass&ssl=false`;
 
 try {
   // Connect to the MongoDB cluster
